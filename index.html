@@ -198,6 +198,7 @@
       }
       .hero-content {
         max-width: 640px;
+        min-width: 0;
       }
       .hero-visual {
         position: relative;
@@ -212,9 +213,10 @@
         box-shadow: 0 24px 60px rgba(18, 32, 46, 0.18);
       }
       .hero-eyebrow {
-        display: inline-flex;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        gap: 10px;
+        gap: 6px 10px;
         font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.28em;
@@ -227,6 +229,7 @@
         content: "";
         width: 36px;
         height: 2px;
+        flex-shrink: 0;
         background: var(--accent-dark);
       }
       .hero-title {
@@ -1363,6 +1366,48 @@
         }
         .about-photo-badge-2 {
           right: 0;
+        }
+      }
+      @media (max-width: 600px) {
+        .hero-inner {
+          padding-top: 40px;
+          gap: 32px;
+        }
+        .hero-eyebrow {
+          font-size: 10px;
+          letter-spacing: 0.16em;
+        }
+        .hero-eyebrow::before {
+          width: 24px;
+        }
+        .hero-title {
+          font-size: clamp(54px, 15vw, 80px);
+        }
+        .hero-desc {
+          font-size: 16px;
+          margin-top: 20px;
+        }
+        .hero-cta {
+          margin-top: 32px;
+          width: 100%;
+        }
+        .hero-cta > a {
+          flex: 1 1 140px;
+          text-align: center;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .hero-stats {
+          margin-top: 40px;
+          flex-wrap: wrap;
+          gap: 24px 0;
+        }
+        .hero-stat {
+          padding-right: 24px;
+          margin-right: 24px;
+        }
+        .h-stat-num {
+          font-size: 46px;
         }
       }
     </style>
