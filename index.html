@@ -1,0 +1,2232 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ХК Дизель — Вологда</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --ice: #f0f4f8;
+        --ice-2: #e2eaf3;
+        --ice-3: #c8d8ea;
+        --steel: #12202e;
+        --steel-mid: #1e3a56;
+        --accent: #e0b400;
+        --accent-dark: #b89200;
+        --gold: #e0b400;
+        --red: #d42e1a;
+        --red-light: #f04030;
+        --text: #12202e;
+        --text-muted: #4e6880;
+        --white: #ffffff;
+        --maxw: 1440px;
+        --pad-x: max(5%, calc((100% - var(--maxw)) / 2));
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Raleway", sans-serif;
+        background: var(--ice);
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 var(--pad-x);
+        height: 70px;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(18, 32, 46, 0.08);
+        box-shadow: 0 2px 20px rgba(18, 32, 46, 0.05);
+        animation: slideDown 0.6s ease both;
+      }
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 26px;
+        letter-spacing: 3px;
+        color: var(--steel);
+        text-decoration: none;
+      }
+      .nav-logo-img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.25s;
+        position: relative;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 100%;
+        height: 2px;
+        background: var(--accent);
+        transition: right 0.3s ease;
+      }
+      .nav-links a:hover {
+        color: var(--steel);
+      }
+      .nav-links a:hover::after {
+        right: 0;
+      }
+      .nav-btn {
+        background: var(--accent);
+        color: var(--steel);
+        border: none;
+        padding: 11px 24px;
+        border-radius: 3px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          transform 0.15s;
+      }
+      .nav-btn:hover {
+        background: #f0c800;
+        transform: translateY(-1px);
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        padding-top: 70px;
+        display: flex;
+        align-items: center;
+        background: var(--ice);
+        overflow: hidden;
+      }
+      .hero-inner {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 60px;
+        align-items: center;
+        padding: 70px var(--pad-x) 60px;
+      }
+      .hero-content {
+        max-width: 640px;
+      }
+      .hero-visual {
+        position: relative;
+      }
+      .hero-photo {
+        width: 100%;
+        aspect-ratio: 4/5;
+        border-radius: 12px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: 0 24px 60px rgba(18, 32, 46, 0.18);
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+        margin-bottom: 20px;
+        animation: fadeUp 0.7s 0.2s ease both;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        width: 36px;
+        height: 2px;
+        background: var(--accent-dark);
+      }
+      .hero-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(80px, 12vw, 150px);
+        line-height: 0.88;
+        color: var(--steel);
+        letter-spacing: -1px;
+        animation: fadeUp 0.85s 0.35s ease both;
+      }
+      .hero-title .yellow {
+        color: var(--accent-dark);
+      }
+      .hero-title .city {
+        font-size: 0.32em;
+        color: var(--text-muted);
+        display: block;
+        letter-spacing: 0.12em;
+        margin-top: 12px;
+      }
+      .hero-desc {
+        margin-top: 24px;
+        font-size: 17px;
+        line-height: 1.75;
+        color: var(--text-muted);
+        max-width: 520px;
+        font-weight: 400;
+        animation: fadeUp 0.85s 0.5s ease both;
+      }
+      .hero-cta {
+        margin-top: 40px;
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        animation: fadeUp 0.85s 0.65s ease both;
+      }
+      .btn-gold {
+        background: var(--accent);
+        color: var(--steel);
+        border: none;
+        padding: 16px 38px;
+        border-radius: 3px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition:
+          background 0.25s,
+          transform 0.2s;
+      }
+      .btn-gold:hover {
+        background: #f0c800;
+        transform: translateY(-2px);
+      }
+      .btn-ghost-light {
+        background: transparent;
+        color: var(--steel);
+        border: 1.5px solid rgba(18, 32, 46, 0.3);
+        padding: 14px 36px;
+        border-radius: 3px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition:
+          color 0.25s,
+          border-color 0.25s,
+          transform 0.2s;
+      }
+      .btn-ghost-light:hover {
+        color: var(--steel);
+        border-color: var(--steel);
+        transform: translateY(-2px);
+      }
+      .hero-stats {
+        margin-top: 56px;
+        display: flex;
+        gap: 0;
+        animation: fadeUp 0.85s 0.8s ease both;
+      }
+      .hero-stat {
+        padding: 0 40px 0 0;
+        margin-right: 40px;
+        border-right: 1px solid rgba(18, 32, 46, 0.14);
+      }
+      .hero-stat:last-child {
+        border-right: none;
+      }
+      .h-stat-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 56px;
+        line-height: 1;
+        color: var(--steel);
+        letter-spacing: 1px;
+      }
+      .h-stat-num sup {
+        font-size: 0.45em;
+        color: var(--accent-dark);
+      }
+      .h-stat-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+      @keyframes fadeUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* TICKER */
+      .ticker {
+        background: var(--accent);
+        overflow: hidden;
+        padding: 11px 0;
+      }
+      .ticker-inner {
+        display: flex;
+        animation: tickerScroll 35s linear infinite;
+        width: max-content;
+      }
+      .ticker-item {
+        white-space: nowrap;
+        padding: 0 36px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--steel);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .ticker-sep {
+        width: 5px;
+        height: 5px;
+        background: rgba(18, 32, 46, 0.4);
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      @keyframes tickerScroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 100px var(--pad-x);
+      }
+      .section-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+        margin-bottom: 14px;
+      }
+      .section-eyebrow::before {
+        content: "";
+        width: 24px;
+        height: 2px;
+        background: var(--accent);
+      }
+      .section-h {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(46px, 6.5vw, 88px);
+        color: var(--steel);
+        line-height: 0.92;
+        letter-spacing: 0.5px;
+        margin-bottom: 20px;
+      }
+      .section-lead {
+        font-size: 16px;
+        color: var(--text-muted);
+        line-height: 1.75;
+        max-width: 480px;
+      }
+
+      /* ABOUT */
+      .about {
+        background: var(--white);
+      }
+      .about-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 100px;
+        align-items: center;
+      }
+      .about-photo-wrap {
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        aspect-ratio: 4/5;
+      }
+      .about-photo {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform 0.6s ease;
+      }
+      .about-photo-wrap:hover .about-photo {
+        transform: scale(1.04);
+      }
+      .about-photo-badge {
+        position: absolute;
+        bottom: 28px;
+        left: -20px;
+        background: var(--steel);
+        color: #fff;
+        padding: 20px 28px;
+        border-radius: 3px;
+      }
+      .about-photo-badge .badge-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 52px;
+        line-height: 1;
+        color: var(--accent);
+      }
+      .about-photo-badge .badge-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 2px;
+      }
+      .about-photo-badge-2 {
+        position: absolute;
+        top: 28px;
+        right: -20px;
+        background: var(--accent);
+        color: var(--steel);
+        padding: 16px 22px;
+        border-radius: 3px;
+      }
+      .about-photo-badge-2 .badge-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 36px;
+        line-height: 1;
+      }
+      .about-photo-badge-2 .badge-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(18, 32, 46, 0.6);
+      }
+      .about-features {
+        margin-top: 40px;
+        display: grid;
+        gap: 14px;
+      }
+      .about-feature {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        padding: 20px 22px;
+        background: var(--ice);
+        border-radius: 4px;
+        border-left: 3px solid transparent;
+        transition:
+          border-left-color 0.3s,
+          transform 0.3s;
+      }
+      .about-feature:hover {
+        border-left-color: var(--accent);
+        transform: translateX(6px);
+      }
+      .af-icon {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        background: var(--steel);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .af-icon svg {
+        display: block;
+      }
+      .af-text h4 {
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--steel);
+        margin-bottom: 4px;
+      }
+      .af-text p {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.55;
+      }
+
+      /* SCHEDULE */
+      .schedule {
+        background: var(--ice);
+      }
+      .schedule-grid {
+        margin-top: 52px;
+        display: grid;
+        gap: 10px;
+      }
+      .game-card {
+        background: var(--white);
+        border-radius: 6px;
+        padding: 22px 28px;
+        display: grid;
+        grid-template-columns: 72px 1fr auto auto;
+        gap: 28px;
+        align-items: center;
+        border-left: 3px solid transparent;
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.5s,
+          transform 0.5s,
+          border-left-color 0.25s,
+          box-shadow 0.25s;
+      }
+      .game-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .game-card:hover {
+        border-left-color: var(--accent);
+        box-shadow: 0 6px 28px rgba(18, 32, 46, 0.07);
+      }
+      .game-card.home {
+        border-left-color: var(--gold);
+      }
+      .game-date {
+        text-align: center;
+      }
+      .game-day {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 38px;
+        color: var(--steel);
+        line-height: 1;
+      }
+      .game-month {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+      .game-info h4 {
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--steel);
+        margin-bottom: 5px;
+      }
+      .game-info p {
+        font-size: 13px;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .game-badge {
+        padding: 5px 14px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .badge-home {
+        background: rgba(224, 180, 0, 0.16);
+        color: var(--accent-dark);
+      }
+      .badge-away {
+        background: rgba(18, 32, 46, 0.06);
+        color: var(--text-muted);
+      }
+      .game-ticket {
+        background: var(--steel);
+        color: #fff;
+        border: none;
+        padding: 11px 22px;
+        border-radius: 3px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          background 0.25s,
+          transform 0.2s;
+      }
+      .game-ticket:hover {
+        background: var(--accent);
+        color: var(--steel);
+        transform: scale(1.04);
+      }
+      .game-ticket.soon {
+        background: var(--ice-2);
+        color: var(--text-muted);
+        cursor: default;
+      }
+      .game-ticket.soon:hover {
+        transform: none;
+        background: var(--ice-2);
+      }
+
+      /* PLAYERS */
+      .players {
+        background: var(--ice);
+        padding: 100px var(--pad-x);
+      }
+      .players .section-h {
+        color: var(--steel);
+      }
+      .players .section-lead {
+        color: var(--text-muted);
+      }
+      .players-grid {
+        margin-top: 52px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 18px;
+      }
+      .player-card {
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        background: var(--white);
+        border: 1px solid rgba(18, 32, 46, 0.08);
+        box-shadow: 0 6px 24px rgba(18, 32, 46, 0.05);
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.5s,
+          transform 0.5s,
+          box-shadow 0.3s;
+        cursor: default;
+      }
+      .player-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .player-card:hover {
+        box-shadow: 0 12px 36px rgba(18, 32, 46, 0.12);
+      }
+      .player-photo {
+        width: 100%;
+        aspect-ratio: 3/2;
+        overflow: hidden;
+        position: relative;
+        background: var(--ice-2);
+      }
+      .player-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        filter: grayscale(25%) contrast(1.04);
+        transition:
+          transform 0.5s,
+          filter 0.4s;
+      }
+      .player-card:hover .player-photo img {
+        transform: scale(1.05);
+        filter: grayscale(0%) contrast(1.08);
+      }
+      .player-photo-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 45%,
+          rgba(12, 20, 30, 0.75) 100%
+        );
+      }
+      .player-num-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: var(--accent);
+        color: var(--steel);
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 18px;
+        letter-spacing: 1px;
+        padding: 3px 10px;
+        border-radius: 2px;
+      }
+      .player-info {
+        padding: 16px 18px 20px;
+      }
+      .player-name {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 24px;
+        color: var(--steel);
+        letter-spacing: 1px;
+        line-height: 1.1;
+      }
+      .player-pos {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+        margin-top: 3px;
+      }
+      .player-stats {
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(18, 32, 46, 0.1);
+        display: flex;
+        gap: 20px;
+      }
+      .ps-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 30px;
+        color: var(--steel);
+        line-height: 1;
+      }
+      .ps-lbl {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      /* NEWS */
+      .news {
+        background: var(--white);
+      }
+      .news-grid {
+        margin-top: 52px;
+        display: grid;
+        grid-template-columns: 1.8fr 1fr 1fr;
+        gap: 18px;
+      }
+      .news-card {
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--ice);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .news-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease,
+          box-shadow 0.3s;
+      }
+      .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 40px rgba(18, 32, 46, 0.1);
+      }
+      .news-img {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+      .news-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s;
+      }
+      .news-card:hover .news-img img {
+        transform: scale(1.05);
+      }
+      .news-body {
+        padding: 20px 22px 24px;
+      }
+      .news-cat {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+        margin-bottom: 8px;
+      }
+      .news-title-text {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 20px;
+        color: var(--steel);
+        line-height: 1.15;
+        letter-spacing: 0.4px;
+      }
+      .news-card.large .news-title-text {
+        font-size: 30px;
+      }
+      .news-meta {
+        margin-top: 12px;
+        font-size: 12px;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      /* ARENA */
+      .arena {
+        background: var(--ice);
+      }
+      .arena-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: start;
+      }
+      .arena-photo-wrap {
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        aspect-ratio: 4/3;
+        box-shadow: 0 16px 48px rgba(18, 32, 46, 0.12);
+      }
+      .arena-photo {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform 0.6s;
+      }
+      .arena-photo-wrap:hover .arena-photo {
+        transform: scale(1.03);
+      }
+      .arena-photo-tag {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(12, 20, 30, 0.85));
+        padding: 40px 24px 20px;
+      }
+      .arena-photo-tag span {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 22px;
+        color: #fff;
+        letter-spacing: 2px;
+      }
+      .arena-info {
+        display: grid;
+        gap: 0;
+        margin-top: 10px;
+      }
+      .a-row {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--ice-3);
+      }
+      .a-row:last-child {
+        border-bottom: none;
+      }
+      .a-icon-box {
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+        background: var(--steel);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .a-icon-box svg {
+        display: block;
+      }
+      .a-row h4 {
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--steel);
+        margin-bottom: 4px;
+      }
+      .a-row p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* CTA */
+      .cta-section {
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+      }
+      .cta-photo {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .cta-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          100deg,
+          rgba(240, 244, 248, 0.99) 0%,
+          rgba(240, 244, 248, 0.97) 48%,
+          rgba(240, 244, 248, 0.85) 74%,
+          rgba(240, 244, 248, 0.6) 100%
+        );
+      }
+      .cta-content {
+        position: relative;
+        z-index: 1;
+        padding: 100px var(--pad-x);
+        width: 100%;
+      }
+      .cta-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(52px, 8vw, 108px);
+        color: var(--steel);
+        line-height: 0.9;
+        letter-spacing: 1px;
+        margin-bottom: 22px;
+      }
+      .cta-title span {
+        color: var(--accent-dark);
+      }
+      .cta-desc {
+        font-size: 17px;
+        color: #2b3f54;
+        font-weight: 500;
+        max-width: 440px;
+        line-height: 1.75;
+        margin-bottom: 40px;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .btn-white-solid {
+        background: var(--accent);
+        color: var(--steel);
+        border: none;
+        padding: 16px 38px;
+        border-radius: 3px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition:
+          background 0.25s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .btn-white-solid:hover {
+        background: #f0c800;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(18, 32, 46, 0.18);
+      }
+      .btn-border-white {
+        background: transparent;
+        color: var(--steel);
+        border: 1.5px solid rgba(18, 32, 46, 0.3);
+        padding: 14px 36px;
+        border-radius: 3px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition:
+          color 0.25s,
+          border-color 0.25s,
+          transform 0.2s;
+      }
+      .btn-border-white:hover {
+        color: var(--steel);
+        border-color: var(--steel);
+        transform: translateY(-2px);
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--ice-2);
+        padding: 64px var(--pad-x) 40px;
+        border-top: 1px solid rgba(18, 32, 46, 0.08);
+      }
+      .footer-inner {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 52px;
+      }
+      .f-logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 30px;
+        color: var(--steel);
+        letter-spacing: 3px;
+        margin-bottom: 12px;
+      }
+      .f-logo span {
+        color: var(--accent-dark);
+      }
+      .f-desc {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.75;
+        max-width: 250px;
+      }
+      .f-col h5 {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 18px;
+      }
+      .f-col ul {
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+      .f-col ul a {
+        font-size: 14px;
+        color: var(--steel);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .f-col ul a:hover {
+        color: var(--accent-dark);
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(18, 32, 46, 0.12);
+        padding-top: 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .f-copy {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+      .socials {
+        display: flex;
+        gap: 10px;
+      }
+      .soc {
+        width: 36px;
+        height: 36px;
+        border-radius: 5px;
+        border: 1px solid rgba(18, 32, 46, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition:
+          background 0.25s,
+          border-color 0.25s;
+      }
+      .soc:hover {
+        background: rgba(18, 32, 46, 0.06);
+        border-color: rgba(18, 32, 46, 0.3);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* MODAL */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(18, 32, 46, 0.45);
+        backdrop-filter: blur(6px);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+      .modal-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
+      .modal {
+        position: relative;
+        width: 100%;
+        max-width: 460px;
+        background: var(--white);
+        border: 1px solid rgba(18, 32, 46, 0.08);
+        border-radius: 12px;
+        padding: 40px 36px 36px;
+        box-shadow: 0 30px 80px rgba(18, 32, 46, 0.25);
+        transform: translateY(20px) scale(0.97);
+        transition: transform 0.3s ease;
+      }
+      .modal-overlay.open .modal {
+        transform: translateY(0) scale(1);
+      }
+      .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1px solid rgba(18, 32, 46, 0.14);
+        background: transparent;
+        color: var(--text-muted);
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .modal-close:hover {
+        background: rgba(18, 32, 46, 0.06);
+        color: var(--steel);
+      }
+      .modal-logo {
+        width: auto;
+        height: 52px;
+        object-fit: contain;
+        margin-bottom: 20px;
+      }
+      .modal-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 36px;
+        color: var(--steel);
+        letter-spacing: 1px;
+        line-height: 1;
+        margin-bottom: 12px;
+      }
+      .modal-text {
+        font-size: 15px;
+        color: var(--text-muted);
+        line-height: 1.65;
+        margin-bottom: 26px;
+      }
+      .modal-contacts {
+        display: grid;
+        gap: 12px;
+      }
+      .modal-contact {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 18px;
+        border-radius: 8px;
+        background: var(--ice);
+        border: 1px solid rgba(18, 32, 46, 0.08);
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .modal-contact:hover {
+        background: rgba(224, 180, 0, 0.14);
+        border-color: rgba(224, 180, 0, 0.5);
+        transform: translateX(4px);
+      }
+      .modal-contact-icon {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-contact-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 3px;
+      }
+      .modal-contact-value {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--steel);
+      }
+
+      @media (max-width: 960px) {
+        .hero {
+          min-height: auto;
+        }
+        .hero-inner {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          padding-top: 50px;
+        }
+        .hero-visual {
+          order: -1;
+        }
+        .hero-photo {
+          aspect-ratio: 16/10;
+        }
+        .about-inner,
+        .arena-inner {
+          grid-template-columns: 1fr;
+        }
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+        .game-card {
+          grid-template-columns: 60px 1fr;
+        }
+        .game-badge {
+          display: none;
+        }
+        .game-ticket {
+          grid-column: 2;
+          justify-self: start;
+        }
+        .footer-inner {
+          grid-template-columns: 1fr 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+        .about-photo-badge {
+          left: 0;
+        }
+        .about-photo-badge-2 {
+          right: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-logo" href="#">
+        <img
+          src="images/logo.png"
+          alt="Логотип ХК Дизель"
+          class="nav-logo-img"
+        />
+        ХК&nbsp;<span style="color: var(--accent)">Дизель</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">О команде</a></li>
+        <li><a href="#schedule">Расписание</a></li>
+        <li><a href="#players">Состав</a></li>
+        <li><a href="#news">Новости</a></li>
+        <li><a href="#arena">Арена</a></li>
+      </ul>
+      <button class="nav-btn" data-modal="ticket">Купить билет</button>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            Хоккейный клуб · Вологда · Сезон 2025–26
+          </div>
+          <h1 class="hero-title">
+            <span class="yellow">ХК</span><br />Дизель<span class="city"
+              >Вологда · Основан 2018</span
+            >
+          </h1>
+          <p class="hero-desc">
+            Стальной характер. Ледяная скорость. Мы — «Дизель», и мы выходим на
+            лёд только за победой.
+          </p>
+          <div class="hero-cta">
+            <a href="#" class="btn-gold" data-modal="ticket">Купить билеты</a>
+            <a href="#players" class="btn-ghost-light">Состав команды</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="h-stat-num">18<sup>+</sup></div>
+              <div class="h-stat-label">Игроков</div>
+            </div>
+            <div class="hero-stat">
+              <div class="h-stat-num">32</div>
+              <div class="h-stat-label">Матча в сезоне</div>
+            </div>
+            <div class="hero-stat">
+              <div class="h-stat-num">5<sup>к</sup></div>
+              <div class="h-stat-label">Болельщиков</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div
+            class="hero-photo"
+            style="background-image: url(&quot;images/hero.jpg&quot;)"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker">
+      <div class="ticker-inner">
+        <span class="ticker-item"
+          >Дизель — Сокол <strong style="margin: 0 4px">4 : 2</strong
+          ><span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Следующая домашняя игра — 15 июня<span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Лукин признан лучшим вратарём недели<span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Абонементы на сезон 2025/26 в продаже<span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Дизель — Норильск <strong style="margin: 0 4px">3 : 1</strong
+          ><span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Запись в детскую школу открыта<span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Дизель — Сокол <strong style="margin: 0 4px">4 : 2</strong
+          ><span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Следующая домашняя игра — 15 июня<span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Лукин признан лучшим вратарём недели<span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Абонементы на сезон 2025/26 в продаже<span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Дизель — Норильск <strong style="margin: 0 4px">3 : 1</strong
+          ><span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Запись в детскую школу открыта<span class="ticker-sep"></span
+        ></span>
+      </div>
+    </div>
+
+    <section class="about" id="about">
+      <div class="about-inner">
+        <div class="reveal" style="position: relative; padding: 0 20px 0 0">
+          <div class="about-photo-wrap">
+            <div
+              class="about-photo"
+              style="background-image: url(&quot;images/about.jpg&quot;)"
+            ></div>
+          </div>
+          <div class="about-photo-badge">
+            <div class="badge-num">2018</div>
+            <div class="badge-label">Год основания</div>
+          </div>
+          <div class="about-photo-badge-2">
+            <div class="badge-num">ВХЛ</div>
+            <div class="badge-label">Высшая лига</div>
+          </div>
+        </div>
+        <div>
+          <div class="section-eyebrow reveal">О клубе</div>
+          <h2 class="section-h reveal">Сила<br />стали</h2>
+          <p class="section-lead reveal">
+            ХК «Дизель» — амбициозный хоккейный клуб Вологды, выступающий в
+            Высшей хоккейной лиге. Мы объединяем опытных мастеров и
+            перспективную молодёжь, отдавая каждый матч с полной самоотдачей.
+          </p>
+          <div class="about-features">
+            <div class="about-feature reveal">
+              <div class="af-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e0b400"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 20h18M6 20V10l6-7 6 7v10" />
+                  <path d="M9 20v-5h6v5" />
+                </svg>
+              </div>
+              <div class="af-text">
+                <h4>Профессиональный состав</h4>
+                <p>
+                  Опытные хоккеисты и молодые таланты под руководством
+                  тренерского штаба с многолетним стажем.
+                </p>
+              </div>
+            </div>
+            <div class="about-feature reveal">
+              <div class="af-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e0b400"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="7" width="20" height="14" rx="2" />
+                  <path d="M8 7V5a2 2 0 0 1 4 0v2" />
+                  <circle cx="12" cy="13" r="2" />
+                  <path d="M12 15v2" />
+                </svg>
+              </div>
+              <div class="af-text">
+                <h4>Домашняя арена</h4>
+                <p>
+                  Современная ледовая арена в Вологде — место, где рождаются
+                  победы и создаётся история клуба.
+                </p>
+              </div>
+            </div>
+            <div class="about-feature reveal">
+              <div class="af-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e0b400"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+              </div>
+              <div class="af-text">
+                <h4>Детская школа</h4>
+                <p>
+                  Воспитываем будущих звёзд хоккея. Приём детей от 5 лет,
+                  круглогодичные тренировки на профессиональном льду.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="schedule" id="schedule">
+      <div class="section-eyebrow reveal">Расписание матчей</div>
+      <h2 class="section-h reveal">Ближайшие<br />игры</h2>
+      <p class="section-lead reveal">
+        Приходите поддержать «Дизель» на домашних матчах.
+      </p>
+      <div class="schedule-grid">
+        <div class="game-card home">
+          <div class="game-date">
+            <div class="game-day">15</div>
+            <div class="game-month">Июня</div>
+          </div>
+          <div class="game-info">
+            <h4>Дизель — Сокол</h4>
+            <p>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                />
+                <circle cx="12" cy="9" r="2.5" /></svg
+              >Арена «Витязь», Вологда · 19:00
+            </p>
+          </div>
+          <span class="game-badge badge-home">Домашний</span>
+          <button class="game-ticket" data-modal="ticket">Купить билет</button>
+        </div>
+        <div class="game-card">
+          <div class="game-date">
+            <div class="game-day">22</div>
+            <div class="game-month">Июня</div>
+          </div>
+          <div class="game-info">
+            <h4>Норильск — Дизель</h4>
+            <p>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                />
+                <circle cx="12" cy="9" r="2.5" /></svg
+              >Арена «Айка», Норильск · 18:00
+            </p>
+          </div>
+          <span class="game-badge badge-away">Выездной</span>
+          <button class="game-ticket soon">Скоро</button>
+        </div>
+        <div class="game-card home">
+          <div class="game-date">
+            <div class="game-day">29</div>
+            <div class="game-month">Июня</div>
+          </div>
+          <div class="game-info">
+            <h4>Дизель — Рубин</h4>
+            <p>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                />
+                <circle cx="12" cy="9" r="2.5" /></svg
+              >Арена «Витязь», Вологда · 19:30
+            </p>
+          </div>
+          <span class="game-badge badge-home">Домашний</span>
+          <button class="game-ticket" data-modal="ticket">Купить билет</button>
+        </div>
+        <div class="game-card home">
+          <div class="game-date">
+            <div class="game-day">06</div>
+            <div class="game-month">Июля</div>
+          </div>
+          <div class="game-info">
+            <h4>Дизель — Торос</h4>
+            <p>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                />
+                <circle cx="12" cy="9" r="2.5" /></svg
+              >Арена «Витязь», Вологда · 18:00
+            </p>
+          </div>
+          <span class="game-badge badge-home">Домашний</span>
+          <button class="game-ticket" data-modal="ticket">Купить билет</button>
+        </div>
+        <div class="game-card">
+          <div class="game-date">
+            <div class="game-day">14</div>
+            <div class="game-month">Июля</div>
+          </div>
+          <div class="game-info">
+            <h4>Зауралье — Дизель</h4>
+            <p>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                />
+                <circle cx="12" cy="9" r="2.5" /></svg
+              >Ледовый дворец, Курган · 17:00
+            </p>
+          </div>
+          <span class="game-badge badge-away">Выездной</span>
+          <button class="game-ticket soon">Скоро</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="players" id="players">
+      <div class="section-eyebrow reveal">Состав</div>
+      <h2 class="section-h reveal">Наши<br />игроки</h2>
+      <p class="section-lead reveal">
+        Каждый хоккеист «Дизеля» — это характер, скорость и преданность команде.
+      </p>
+      <div class="players-grid">
+        <div class="player-card">
+          <div class="player-photo">
+            <img src="images/player1.jpg" alt="Антон Лукин" loading="lazy" />
+            <div class="player-photo-overlay"></div>
+            <div class="player-num-badge">№ 30</div>
+          </div>
+          <div class="player-info">
+            <div class="player-name">Антон Лукин</div>
+            <div class="player-pos">Вратарь</div>
+            <div class="player-stats">
+              <div class="ps">
+                <div class="ps-num">93%</div>
+                <div class="ps-lbl">Отражено</div>
+              </div>
+              <div class="ps">
+                <div class="ps-num">18</div>
+                <div class="ps-lbl">Матчей</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-photo">
+            <img src="images/player2.jpg" alt="Дмитрий Волков" loading="lazy" />
+            <div class="player-photo-overlay"></div>
+            <div class="player-num-badge">№ 7</div>
+          </div>
+          <div class="player-info">
+            <div class="player-name">Дмитрий Волков</div>
+            <div class="player-pos">Нападающий</div>
+            <div class="player-stats">
+              <div class="ps">
+                <div class="ps-num">14</div>
+                <div class="ps-lbl">Голов</div>
+              </div>
+              <div class="ps">
+                <div class="ps-num">22</div>
+                <div class="ps-lbl">Передач</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-photo">
+            <img src="images/player3.jpg" alt="Иван Морозов" loading="lazy" />
+            <div class="player-photo-overlay"></div>
+            <div class="player-num-badge">№ 10</div>
+          </div>
+          <div class="player-info">
+            <div class="player-name">Иван Морозов</div>
+            <div class="player-pos">Нападающий</div>
+            <div class="player-stats">
+              <div class="ps">
+                <div class="ps-num">11</div>
+                <div class="ps-lbl">Голов</div>
+              </div>
+              <div class="ps">
+                <div class="ps-num">17</div>
+                <div class="ps-lbl">Передач</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-photo">
+            <img src="images/player4.jpg" alt="Никита Зайцев" loading="lazy" />
+            <div class="player-photo-overlay"></div>
+            <div class="player-num-badge">№ 23</div>
+          </div>
+          <div class="player-info">
+            <div class="player-name">Никита Зайцев</div>
+            <div class="player-pos">Защитник</div>
+            <div class="player-stats">
+              <div class="ps">
+                <div class="ps-num">+18</div>
+                <div class="ps-lbl">Показатель ±</div>
+              </div>
+              <div class="ps">
+                <div class="ps-num">6</div>
+                <div class="ps-lbl">Голов</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="player-card">
+          <div class="player-photo">
+            <img
+              src="images/player5.jpg"
+              alt="Алексей Смирнов"
+              loading="lazy"
+            />
+            <div class="player-photo-overlay"></div>
+            <div class="player-num-badge">№ 88</div>
+          </div>
+          <div class="player-info">
+            <div class="player-name">Алексей Смирнов</div>
+            <div class="player-pos">Нападающий</div>
+            <div class="player-stats">
+              <div class="ps">
+                <div class="ps-num">18</div>
+                <div class="ps-lbl">Голов</div>
+              </div>
+              <div class="ps">
+                <div class="ps-num">28</div>
+                <div class="ps-lbl">Передач</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="news" id="news">
+      <div class="section-eyebrow reveal">Новости</div>
+      <h2 class="section-h reveal">Последние<br />события</h2>
+      <div class="news-grid">
+        <div class="news-card large reveal">
+          <div class="news-img" style="height: 300px">
+            <img
+              src="images/news1.jpg"
+              alt="Матч Дизель"
+              style="height: 100%"
+            />
+          </div>
+          <div class="news-body">
+            <div class="news-cat">Матч</div>
+            <div class="news-title-text">
+              Дизель дал упорный бой одному из лидеров лиги в домашнем матче
+              сезона
+            </div>
+            <div class="news-meta">
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" /></svg
+              >3 июня 2026 · Пресс-служба клуба
+            </div>
+          </div>
+        </div>
+        <div class="news-card reveal">
+          <div class="news-img" style="height: 170px">
+            <img
+              src="images/news2.jpg"
+              alt="Новое усиление"
+              style="height: 100%"
+            />
+          </div>
+          <div class="news-body">
+            <div class="news-cat">Трансфер</div>
+            <div class="news-title-text">
+              Новое усиление: нападающий пополнил состав «Дизеля»
+            </div>
+            <div class="news-meta">
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" /></svg
+              >29 мая 2026
+            </div>
+          </div>
+        </div>
+        <div class="news-card reveal">
+          <div class="news-img" style="height: 170px">
+            <img src="images/news3.jpg" alt="Абонементы" style="height: 100%" />
+          </div>
+          <div class="news-body">
+            <div class="news-cat">Клуб</div>
+            <div class="news-title-text">
+              Сезонные абонементы 2025/26 поступили в продажу
+            </div>
+            <div class="news-meta">
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" /></svg
+              >25 мая 2026
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="arena" id="arena">
+      <div class="arena-inner">
+        <div class="reveal">
+          <div class="arena-photo-wrap">
+            <div
+              class="arena-photo"
+              style="background-image: url(&quot;images/arena.png&quot;)"
+            ></div>
+            <div class="arena-photo-tag">
+              <span>Ледовая арена «Витязь»</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="section-eyebrow reveal">Арена</div>
+          <h2 class="section-h reveal">Наш<br />домашний лёд</h2>
+          <div class="arena-info">
+            <div class="a-row reveal">
+              <div class="a-icon-box">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e0b400"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                  />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+              </div>
+              <div>
+                <h4>Адрес</h4>
+                <p>
+                  г. Вологда, ул. Ленинградская, 71<br />Остановка «Ледовый
+                  дворец»
+                </p>
+              </div>
+            </div>
+            <div class="a-row reveal">
+              <div class="a-icon-box">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e0b400"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div>
+                <h4>Вместимость</h4>
+                <p>
+                  5 500 зрителей · Крытый лёд<br />Трибуны с подогревом сидений
+                </p>
+              </div>
+            </div>
+            <div class="a-row reveal">
+              <div class="a-icon-box">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e0b400"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div>
+                <h4>Кассы открыты</h4>
+                <p>
+                  Пн–Пт: 10:00 – 18:00<br />В дни матчей: до конца 1-го периода
+                </p>
+              </div>
+            </div>
+            <div class="a-row reveal">
+              <div class="a-icon-box">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e0b400"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="1" y="3" width="15" height="13" rx="2" />
+                  <path d="M16 8h4l3 5v3h-7V8z" />
+                  <circle cx="5.5" cy="18.5" r="2.5" />
+                  <circle cx="18.5" cy="18.5" r="2.5" />
+                </svg>
+              </div>
+              <div>
+                <h4>Как добраться</h4>
+                <p>
+                  Автобусы 2, 7, 14, 35 · Маршрутки 52, 66<br />Парковка: 200
+                  мест у арены
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div
+        class="cta-photo"
+        style="background-image: url(&quot;images/cta.jpg&quot;)"
+      ></div>
+      <div class="cta-content">
+        <div class="section-eyebrow reveal">Поддержи команду</div>
+        <h2 class="cta-title reveal">Болей за<br /><span>Дизель</span></h2>
+        <p class="cta-desc reveal">
+          Твоя поддержка — наша сила. Приходи на стадион и стань частью
+          настоящей хоккейной семьи Вологды.
+        </p>
+        <div class="cta-btns reveal">
+          <a href="#" class="btn-white-solid" data-modal="ticket"
+            >Купить билеты</a
+          >
+          <a href="#" class="btn-border-white" data-modal="contact"
+            >Связаться с клубом</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div class="f-logo">ХК <span>Дизель</span></div>
+          <p class="f-desc">
+            Хоккейный клуб «Дизель» — Вологда. Стальной характер, ледяная
+            скорость, победный дух.
+          </p>
+        </div>
+        <div class="f-col">
+          <h5>Клуб</h5>
+          <ul>
+            <li><a href="#about">О команде</a></li>
+            <li><a href="#players">Состав</a></li>
+            <li><a href="#news">Новости</a></li>
+            <li><a href="#">История</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h5>Болельщикам</h5>
+          <ul>
+            <li><a href="#schedule">Расписание</a></li>
+            <li><a href="#">Билеты</a></li>
+            <li><a href="#">Абонементы</a></li>
+            <li><a href="#">Фан-шоп</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h5>Контакты</h5>
+          <ul>
+            <li><a href="tel:+78172550000">+7 (8172) 55-00-00</a></li>
+            <li>
+              <a href="mailto:info@diesel-vologda.ru">info@diesel-vologda.ru</a>
+            </li>
+            <li><a href="#arena">Как добраться</a></li>
+            <li><a href="#" data-modal="contact">Пресс-служба</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="f-copy">
+          © 2026 ХК «Дизель», Вологда. Все права защищены.
+        </div>
+        <div class="socials">
+          <a href="#" class="soc" title="ВКонтакте"
+            ><svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="rgba(18,32,46,0.55)"
+            >
+              <path
+                d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-.998-1.745-.998-.356 0-.458.102-.458.596v1.575c0 .424-.136.678-1.254.678-1.846 0-3.896-1.12-5.34-3.202C4.91 11.576 4.25 9.26 4.25 8.836c0-.254.102-.491.597-.491h1.744c.444 0 .61.204.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V10.75c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.743c.373 0 .508.204.508.643v3.473c0 .372.17.508.271.508.22 0 .406-.136.814-.542 1.254-1.405 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.745c.525 0 .644.27.525.643-.22 1.017-2.355 4.031-2.355 4.031-.186.305-.254.44 0 .779.186.254.796.779 1.203 1.254.745.847 1.32 1.558 1.473 2.049.17.491-.085.745-.576.745z"
+              /></svg
+          ></a>
+          <a href="#" class="soc" title="Telegram"
+            ><svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="rgba(18,32,46,0.55)"
+            >
+              <path
+                d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"
+              /></svg
+          ></a>
+          <a href="#" class="soc" title="YouTube"
+            ><svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="rgba(18,32,46,0.55)"
+            >
+              <path
+                d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"
+              /></svg
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal-overlay" id="contactModal">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button class="modal-close" id="modalClose" aria-label="Закрыть">
+          &times;
+        </button>
+        <img src="images/logo.png" alt="ХК Дизель" class="modal-logo" />
+        <div class="modal-title" id="modalTitle">Свяжитесь с нами</div>
+        <p class="modal-text" id="modalText">
+          Хотите купить билет или задать вопрос? Свяжитесь с нами — вот наши
+          контакты, мы всегда на связи.
+        </p>
+        <div class="modal-contacts">
+          <a href="tel:+78172550000" class="modal-contact">
+            <span class="modal-contact-icon"
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#12202e"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
+                /></svg
+            ></span>
+            <span
+              ><span class="modal-contact-label">Телефон</span
+              ><span class="modal-contact-value">+7 (8172) 55-00-00</span></span
+            >
+          </a>
+          <a href="mailto:info@diesel-vologda.ru" class="modal-contact">
+            <span class="modal-contact-icon"
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#12202e"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-10 6L2 7" /></svg
+            ></span>
+            <span
+              ><span class="modal-contact-label">Электронная почта</span
+              ><span class="modal-contact-value"
+                >info@diesel-vologda.ru</span
+              ></span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("contactModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalText = document.getElementById("modalText");
+      const TICKET_TEXT =
+        "Чтобы купить билет, свяжитесь с нами — вот наши контакты. Поможем выбрать места и оформить покупку.";
+      const CONTACT_TEXT =
+        "Остались вопросы? Свяжитесь с нами — вот наши контакты, мы всегда на связи.";
+      function openModal(mode) {
+        if (mode === "ticket") {
+          modalTitle.textContent = "Купить билет";
+          modalText.textContent = TICKET_TEXT;
+        } else {
+          modalTitle.textContent = "Связаться с клубом";
+          modalText.textContent = CONTACT_TEXT;
+        }
+        modal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      document
+        .getElementById("modalClose")
+        .addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+      document.querySelectorAll("[data-modal]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal(btn.getAttribute("data-modal"));
+        });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+      document
+        .querySelectorAll(".game-card, .player-card, .news-card")
+        .forEach((el) => {
+          const grid = el.closest(".schedule-grid, .players-grid, .news-grid");
+          if (grid) {
+            const siblings = grid.querySelectorAll(
+              ".game-card, .player-card, .news-card",
+            );
+            el.style.transitionDelay =
+              Array.from(siblings).indexOf(el) * 0.07 + "s";
+          }
+          observer.observe(el);
+        });
+      const navLinks = document.querySelectorAll(".nav-links a");
+      document.querySelectorAll("section[id]").forEach((s) =>
+        new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting)
+                navLinks.forEach((a) => {
+                  if (a.getAttribute("href") === "#" + e.target.id)
+                    a.style.color = "#12202e";
+                  else a.style.color = "";
+                });
+            });
+          },
+          { rootMargin: "-40% 0px -55% 0px" },
+        ).observe(s),
+      );
+    </script>
+  </body>
+</html>
